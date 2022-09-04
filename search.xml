@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/09/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Test</title>
+    <url>/2022/05/04/Test/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Course</title>
+    <url>/2022/09/04/Course/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th></th>
+<th>星期一</th>
+<th>星期二</th>
+<th>星期三</th>
+<th>星期四</th>
+<th>星期五</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1-2节</strong></td>
+<td></td>
+<td>软件工程 梁立新(2-18周) C-5-234  软件工程 刘红卫（兼职）(2-18周) <strong>C-5-232</strong></td>
+<td>计算机网络 刘羽朦(2-18周) <strong>C-1-220</strong></td>
+<td>机器学习导论 王小航([1, 17, 2]]) <strong>C-5-444机房</strong></td>
+<td>数据挖掘导论 樊小毛(1-18周) <strong>C-5-355</strong></td>
+</tr>
+<tr>
+<td><strong>3-4节</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11：50 14：00</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>5-6节</strong></td>
+<td>计算机网络 刘羽朦([3, 17, 2]周) <strong>C-1-220</strong></td>
+<td></td>
+<td>数据库系统 樊钧(2-18周) <strong>C-5-217</strong></td>
+<td>计算机网络 刘羽朦,梅逢城(6-14周) <strong>C-1-312</strong></td>
+<td>信息安全导论 姜婧妍(1-18周) <strong>C-5-118</strong></td>
+</tr>
+<tr>
+<td><strong>7-8节</strong></td>
+<td>机器学习导论 王小航(2-18周) <strong>C-5-238</strong></td>
+<td></td>
+<td></td>
+<td>计算机网络 刘羽朦,梅逢城(6-14周) <strong>C-1-312</strong></td>
+<td>数据挖掘导论 樊小毛([2, 18, 2]]) <strong>C-5-358机房</strong></td>
+</tr>
+<tr>
+<td>17：20 18：50</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>9-10节</strong></td>
+<td></td>
+<td>软件工程 梁立新(6-14周) C-1-413  软件工程 刘红卫（兼职）(6-14周) C-1-410</td>
+<td>数据库系统 樊钧(9-17周) <strong>C-1-410</strong></td>
+<td>信息安全导论 姜婧妍(11-15周) <strong>C-5-429机房</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>11-12节</strong></td>
+<td></td>
+<td>软件工程 梁立新(6-14周) C-1-413  软件工程 刘红卫（兼职）(6-14周) <strong>C-1-410</strong></td>
+<td>数据库系统 樊钧(9-17周) <strong>C-1-410</strong></td>
+<td>信息安全导论 姜婧妍(11-15周) <strong>C-5-429机房</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>Academic</tag>
+      </tags>
+  </entry>
+</search>
