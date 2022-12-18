@@ -55,8 +55,8 @@
 <li><p>数据处理方法：特征缩放 MinMaxScaler() <span class="math display">\[
 X_{std} = \frac{X - X_{min}}{X_{max} - X_{min}} 
 \]</span> StandardScaler() <span class="math display">\[
- X_{std} = \frac{X - \mu}{s} 
-\]</span></p></li>
+X_{std} = \frac{X - \mu}{s}
+\]</span> <span id="more"></span></p></li>
 <li><p>K-折交叉检验：随机分为k个子集，k-1个训练，1个评估，进行k次训练，得到的分数取平均值</p></li>
 <li><p>评价指标：混淆矩阵，精度，召回率，F1分数，Roc曲线 精度 <span class="math display">\[
 Precision = \frac{TP}{TP + FP}
