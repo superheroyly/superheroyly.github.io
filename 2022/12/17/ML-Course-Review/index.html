@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="期末复习： 监督类型：有监督学习，半监督学习，无监督学习（区别重点）  有监督学习：分类，回归（预测值）  有监督学习算法：线性回归，逻辑回归，决策树，随机森林  无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE  机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据  过拟合处理方法：简化模型（选择较少参数的模型，例如选择线性模型而不是高">
+  <meta name="description" content="期末复习：  监督类型：有监督学习，半监督学习，无监督学习（区别重点） 有监督学习：分类，回归（预测值） 有监督学习算法：线性回归，逻辑回归，决策树，随机森林 无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE 机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据 过拟合处理方法： 简化模型（选择较少参数的模型，例如选择线性模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ML Course Review">
 <meta property="og:url" content="http://example.com/2022/12/17/ML-Course-Review/index.html">
 <meta property="og:site_name" content="Liuyi Yang">
-<meta property="og:description" content="期末复习： 监督类型：有监督学习，半监督学习，无监督学习（区别重点）  有监督学习：分类，回归（预测值）  有监督学习算法：线性回归，逻辑回归，决策树，随机森林  无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE  机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据  过拟合处理方法：简化模型（选择较少参数的模型，例如选择线性模型而不是高">
+<meta property="og:description" content="期末复习：  监督类型：有监督学习，半监督学习，无监督学习（区别重点） 有监督学习：分类，回归（预测值） 有监督学习算法：线性回归，逻辑回归，决策树，随机森林 无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE 机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据 过拟合处理方法： 简化模型（选择较少参数的模型，例如选择线性模型">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/DT_question.jpg">
 <meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/entropy.png">
 <meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/gini.png">
 <meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/pca.png">
 <meta property="article:published_time" content="2022-12-17T02:40:22.000Z">
-<meta property="article:modified_time" content="2022-12-18T10:48:37.904Z">
+<meta property="article:modified_time" content="2022-12-18T10:55:13.153Z">
 <meta property="article:author" content="Liuyi Yang">
 <meta property="article:tag" content="Academy">
 <meta name="twitter:card" content="summary">
@@ -82,7 +82,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -228,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-18 18:48:37" itemprop="dateModified" datetime="2022-12-18T18:48:37+08:00">2022-12-18</time>
+                <time title="Modified: 2022-12-18 18:55:13" itemprop="dateModified" datetime="2022-12-18T18:55:13+08:00">2022-12-18</time>
               </span>
 
           
@@ -249,55 +253,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="期末复习："><a href="#期末复习：" class="headerlink" title="期末复习："></a><strong>期末复习</strong>：</h2><ol>
-<li><p>监督类型：有监督学习，半监督学习，无监督学习（区别重点）</p>
-</li>
-<li><p>有监督学习：分类，回归（预测值）</p>
-</li>
-<li><p>有监督学习算法：线性回归，逻辑回归，决策树，随机森林</p>
-</li>
-<li><p>无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE</p>
-</li>
-<li><p>机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据</p>
-</li>
-<li><p>过拟合处理方法：<br>简化模型（选择较少参数的模型，例如选择线性模型而不是高阶多项式模型）；<br>减少训练数据中的属性数量，或者是约束模型；<br>收集更多的训练数据；<br>减少训练数据中的噪声（例如，修复数据错误和消除异常值）；</p>
-</li>
-<li><p>欠拟合处理方法：<br>选择一个带有更多参数、更强大的模型；<br>给学习算法提供更好的特征集（进行特征工程）；<br>减少模型中的约束（例如，减少正则化超参数）；</p>
-</li>
-<li><p>选择性能指标：RMSE（均方根误差Root Mean Square Error，对异常值更加敏感），MAE（平均绝对值误差，Mean Absolute Error）</p>
-</li>
-<li><p>数据处理方法：特征缩放<br>MinMaxScaler()<br>$$<br>X_{std} &#x3D; \frac{X - X_{min}}{X_{max} - X_{min}}<br>$$<br>StandardScaler()<br>$$<br>X_{std} &#x3D; \frac{X - \mu}{s}<br>$$</p>
-</li>
-<li><p>K-折交叉检验：随机分为k个子集，k-1个训练，1个评估，进行k次训练，得到的分数取平均值</p>
-</li>
-<li><p>评价指标：混淆矩阵，精度，召回率，F1分数，Roc曲线<br>精度<br>$$<br>Precision &#x3D; \frac{TP}{TP + FP}<br>$$<br>召回率<br>$$<br>Recall &#x3D; \frac{TP}{TP + FN}<br>$$<br>F1分数<br>$$<br>F1-score &#x3D; \frac{2 \times Precision \times Recall }{Precision + Recall}<br>$$<br>ROC曲线<br>Receiver Operating Characteristic，受试者工作特征曲线，为FPR与TPR之间的关系曲线。FPR、TPR（Recall）分别表示代价和收益，显然收益越高、代价越低，模型性能越好。<br>$$<br>\begin{align}<br>TPR &#x3D; \frac{TP}{TP+FN}，真阳性率 \ \<br>FPR &#x3D; \frac{FP}{TN+FP}，假阳性率<br>\end{align}<br>$$</p>
-</li>
-<li><p>梯度下降：</p>
-</li>
-<li><p>学习曲线概念：学习曲线就是通过画出不同<strong>训练集大小</strong>时训练集和交叉验证的<strong>准确率</strong>，可以看到模型在新数据上的表现，进而来判断模型是否方差偏高或偏差过高，以及增大训练集是否可以减小过拟合。<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1796345">机器学习中学习曲线的妙用</a></p>
-</li>
-<li><p>正则化模型：岭回归，Lasso，弹性网络。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Belter/p/8536939.html">正规化</a></p>
-</li>
-<li><p>逻辑回归：（二分类问题）</p>
-</li>
-<li><p>理解SVM的运作原理：</p>
-</li>
-<li><p>支持向量机基本型：</p>
-</li>
-<li><p>决策树模型计算(ID3算法)：<br>Data:</p>
-<img src="/2022/12/17/ML-Course-Review/DT_question.jpg" alt="Question" style="zoom:35%;">
-
-<img src="/2022/12/17/ML-Course-Review/entropy.png" alt="entropy" style="zoom:36%;">
-</li>
+        <h2 id="期末复习"><strong>期末复习</strong>：</h2>
+<ol type="1">
+<li><p>监督类型：有监督学习，半监督学习，无监督学习（区别重点）</p></li>
+<li><p>有监督学习：分类，回归（预测值）</p></li>
+<li><p>有监督学习算法：线性回归，逻辑回归，决策树，随机森林</p></li>
+<li><p>无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE</p></li>
+<li><p>机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据</p></li>
+<li><p>过拟合处理方法： 简化模型（选择较少参数的模型，例如选择线性模型而不是高阶多项式模型）； 减少训练数据中的属性数量，或者是约束模型； 收集更多的训练数据； 减少训练数据中的噪声（例如，修复数据错误和消除异常值）；</p></li>
+<li><p>欠拟合处理方法： 选择一个带有更多参数、更强大的模型； 给学习算法提供更好的特征集（进行特征工程）； 减少模型中的约束（例如，减少正则化超参数）；</p></li>
+<li><p>选择性能指标：RMSE（均方根误差Root Mean Square Error，对异常值更加敏感），MAE（平均绝对值误差，Mean Absolute Error）</p></li>
+<li><p>数据处理方法：特征缩放 MinMaxScaler() <span class="math display">\[
+X_{std} = \frac{X - X_{min}}{X_{max} - X_{min}} 
+\]</span> StandardScaler()</p>
+<p>$ X_{std} =  \$</p></li>
+<li><p>K-折交叉检验：随机分为k个子集，k-1个训练，1个评估，进行k次训练，得到的分数取平均值</p></li>
+<li><p>评价指标：混淆矩阵，精度，召回率，F1分数，Roc曲线 精度 <span class="math display">\[
+Precision = \frac{TP}{TP + FP}
+\]</span> 召回率 <span class="math display">\[
+Recall = \frac{TP}{TP + FN}
+\]</span> F1分数 <span class="math display">\[
+F1-score = \frac{2 \times Precision \times Recall }{Precision + Recall}
+\]</span> ROC曲线 Receiver Operating Characteristic，受试者工作特征曲线，为FPR与TPR之间的关系曲线。FPR、TPR（Recall）分别表示代价和收益，显然收益越高、代价越低，模型性能越好。 <span class="math display">\[
+\begin{align}
+    TPR = \frac{TP}{TP+FN}，真阳性率 \\ \\
+    FPR = \frac{FP}{TN+FP}，假阳性率
+\end{align}
+\]</span></p></li>
+<li><p>梯度下降：</p></li>
+<li><p>学习曲线概念：学习曲线就是通过画出不同<strong>训练集大小</strong>时训练集和交叉验证的<strong>准确率</strong>，可以看到模型在新数据上的表现，进而来判断模型是否方差偏高或偏差过高，以及增大训练集是否可以减小过拟合。<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1796345">机器学习中学习曲线的妙用</a></p></li>
+<li><p>正则化模型：岭回归，Lasso，弹性网络。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Belter/p/8536939.html">正规化</a></p></li>
+<li><p>逻辑回归：（二分类问题）</p></li>
+<li><p>理解SVM的运作原理：</p></li>
+<li><p>支持向量机基本型：</p></li>
+<li><p>决策树模型计算(ID3算法)： Data:</p>
+<p><img src="/2022/12/17/ML-Course-Review/DT_question.jpg" alt="Question" style="zoom:35%;"></p>
+<p><img src="/2022/12/17/ML-Course-Review/entropy.png" alt="entropy" style="zoom:36%;"></p></li>
 <li><p>决策树模型计算(CART算法)：</p>
-<img src="/2022/12/17/ML-Course-Review/gini.png" alt="gini" style="zoom:36%;">
-</li>
-<li><p>Bagging（并行，有放回选取）：思想“三个臭皮匠，顶个诸葛亮。”</p>
-</li>
-<li><p>Boosting（串行，不断调整样本权重） ：思想“Your best teacher is your last mistake.”<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91846911">Bagging和Boosting的总结</a></p>
-</li>
+<p><img src="/2022/12/17/ML-Course-Review/gini.png" alt="gini" style="zoom:36%;"></p></li>
+<li><p>Bagging（并行，有放回选取）：思想“三个臭皮匠，顶个诸葛亮。”</p></li>
+<li><p>Boosting（串行，不断调整样本权重） ：思想“Your best teacher is your last mistake.” <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91846911">Bagging和Boosting的总结</a></p></li>
 <li><p>主成分分析PCA的思想和计算（计算：去平均值，计算协方差矩阵，特征值和特征向量）：</p>
-<img src="/2022/12/17/ML-Course-Review/pca.png" alt="pca" style="zoom:36%;"></li>
+<p><img src="/2022/12/17/ML-Course-Review/pca.png" alt="pca" style="zoom:36%;"></p></li>
 </ol>
 
     </div>
@@ -380,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">期末复习：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">期末复习：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
