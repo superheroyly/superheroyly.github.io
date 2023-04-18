@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-y.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="序言 ​ 4.16，SZTU进行了近300名参赛运动员的定向交流赛。在比赛前中后期的成统工作中，因为没有举办过大型比赛成统经验加之对华瑞建软件的不熟悉，我们遇到了大量问题，但也总结出了不少以后需要注意的地方。为确保我校大型定向赛事顺利开展，能够高效率地完成成统工作，同时向以后的成统裁判提供一些经验和教训，特此记录。 本次成统方面遇到问题 以下列出本次活动当天中遇到的问题以及给出对应的解决方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广东省高校定向交流赛——成统总结">
+<meta property="og:url" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/index.html">
+<meta property="og:site_name" content="Yang Liuyi">
+<meta property="og:description" content="序言 ​ 4.16，SZTU进行了近300名参赛运动员的定向交流赛。在比赛前中后期的成统工作中，因为没有举办过大型比赛成统经验加之对华瑞建软件的不熟悉，我们遇到了大量问题，但也总结出了不少以后需要注意的地方。为确保我校大型定向赛事顺利开展，能够高效率地完成成统工作，同时向以后的成统裁判提供一些经验和教训，特此记录。 本次成统方面遇到问题 以下列出本次活动当天中遇到的问题以及给出对应的解决方法">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/转PDF.png">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/新建赛事.png">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/关系图.png">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/接力赛模板.png">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/接力赛收集表头.png">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/ANSI.png">
+<meta property="og:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/合影.jpg">
+<meta property="article:published_time" content="2023-04-18T14:30:50.000Z">
+<meta property="article:modified_time" content="2023-04-18T14:57:14.066Z">
+<meta property="article:author" content="Yang Liuyi">
+<meta property="article:tag" content="Life">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/转PDF.png">
+
+<link rel="canonical" href="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>广东省高校定向交流赛——成统总结 | Yang Liuyi</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yang Liuyi</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/superheroyly/superheroyly.github.io" class="github-corner" title="Superheroyly GitHub" aria-label="Superheroyly GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yang Liuyi">
+      <meta itemprop="description" content="I am an undergraduate in Shenzhen Technology University, where I focus on learning ML, specially Bio-Inspired Learning.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Liuyi">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          广东省高校定向交流赛——成统总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-04-18 22:30:50 / Modified: 22:57:14" itemprop="dateCreated datePublished" datetime="2023-04-18T22:30:50+08:00">2023-04-18</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="序言">序言</h3>
+<p>​ 4.16，SZTU进行了近300名参赛运动员的定向交流赛。在比赛前中后期的成统工作中，因为没有举办过大型比赛成统经验加之对华瑞建软件的不熟悉，我们遇到了大量问题，但也总结出了不少以后需要注意的地方。为确保我校大型定向赛事顺利开展，能够高效率地完成成统工作，同时向以后的成统裁判提供一些经验和教训，特此记录。</p>
+<h3 id="本次成统方面遇到问题">本次成统方面遇到问题</h3>
+<p>以下列出本次活动当天中遇到的问题以及给出对应的解决方法。</p>
+<ol type="1">
+<li><p>某一个成统成员在早上迟到了😀，所以临时启用了备用电脑，而备用电脑的接力路线不是最新的，导致早上接力赛几个队伍的路线有误，引发了一系列麻烦。 —— 成统裁判应该是最早到达场地的，不应该迟到。</p></li>
+<li><p>打印机突然没电，幸好现场还借了外校的打印机。 —— 打印机的电量应该提前充好。</p></li>
+<li><p>接力赛统一发令卡失效。 —— 解决方法为手动修改集体出发时间，不需要使用发令卡，建议以后也用该方法，集体出发时间应与打卡器时间相同。</p></li>
+<li><p>临时指卡分配混乱，导致后续整理困难。比如这次社团人员用的是借来的深大指卡，有的没指卡的外校运动员用的是我们学校的指卡，后来归还时就乱了。 —— 借给其它人的指卡，统一用其它单位的，不要用自己本校的，本校的指卡一人一码对应，没有多的。<strong>同时现场临时借出的指卡要做好记录</strong>。</p></li>
+<li><p>忽略了社团人员也参加比赛，导致后续录指卡与打印成绩工作冲突。 —— 在向其它单位借来指卡后，应该马上给社团人员先录上指卡，以免后续打印成绩和信息冲突。</p></li>
+<li><p>积分赛设置完后，忘记设置扣分规则。导致一些人积分赛中超时没有扣分和成绩无效。—— 记得积分赛要设置扣分规则。</p></li>
+<li><p>在网页端的数据无法更新至本地端，就是运动员数据只能存在一台电脑上。—— 这属于软件开发技术人员的问题，我们无法解决。</p></li>
+<li><p>赛中打印成绩时一个人会手忙脚乱。 —— 需要一人负责电脑操作，一人负责撕成绩条，未拆封的打印纸放跟前，及时更换。</p></li>
+<li><p>出现运动员的指卡不存在问题，这可能是录入问题或者没有报名。 —— 如果当时排队打成绩人较多，最好让其不要打清楚，晚些人少了再来录入。</p></li>
+<li><p>成绩导出的文件为xlsx格式直接转PDF，会出现格式错乱，后面列会不在同一页面。 —— 如图1所示，在xlsx转换范围选择<strong>选定的内容</strong>，转换选项选择<strong>适合纸张宽度</strong>，再转换为PDF。</p>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/转PDF.png" style="zoom:44%"></p>
+<p style="text-align:center" ;>图1 正确转PDF示意图</p></li>
+<li><p>该系统中，一个组别对应着一条路线，不支持一个组别对应不同路线情况。有时候，这会造成不便，例如这次的百米决赛同为ME组，但不同的运动员有不同的路线。 —— 这需要另外设置组别录入路线，并且最后成绩排名时，看不到排名情况，需要自己手动计算。</p></li>
+<li><p>当天因为接力路线没有更新，导致一些队伍路线正确但是成绩无效，运动员来提出质疑。现场有MP的运动员认为路线有问题、设备有问题对成统提出质疑。 —— 这种情况下先让运动员好好对点，如果仍有问题可以让他们在比赛快要结束人少了再来处理。最后如果还是处理困难就需要请求总裁判做定夺。</p></li>
+<li><p>二维码实时成绩排名不正确。 —— 软件开发技术问题，我们无法解决。</p></li>
+<li><p>接力赛只显示总成绩，没有每个人单项成绩。 —— 软件开发技术问题，我们无法解决。</p></li>
+<li><p>导出成绩的Excel中，表头姓名与CH号反了。 —— 软件开发技术问题，我们需要手动修改。</p></li>
+<li><p>百米赛的器材和积分赛器材同时布置。这导致一些人打了百米赛中不属于积分赛的点，但是也在最终成绩中积上了分，严重影响了公平性。 —— 对于训练赛而言，可以不考虑影响，毕竟是训练赛，运动员的初衷应该在于通过训练提升自己；对于正式比赛而言，可以先准备好器材，但不进行布置。</p></li>
+<li><p>百米赛中的器材没有测试。我们只在早上测试了自己学校的器材，下午没有测试外校借来的器材，这导致一个不灵敏的点被使用，所幸被欣怡提前发现。 —— 所有器材在使用前都需要测试，并且最好测试至少两次。</p></li>
+<li><p>导出成绩时男女没有分开，不够美观。 —— 为了方便查看应该在excel中将男女成绩分开，并且添加一个大标题。</p></li>
+<li><p><strong>含有多个赛项的赛事，只需要创建一个赛事即可，不需要将每个赛项分为不同的赛事。</strong>例如，我们当天举办了接力赛、短距离、积分赛、百米赛，勾选这四个比赛类型，集成到一个赛事活动中。否则，分别开四个比赛类型十分鸡肋，且不符合实际。</p></li>
+</ol>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/新建赛事.png" style="zoom:50%"></p>
+<p style="text-align:center" ;>图2 设置比赛类型</p>
+<h3 id="注意事项">注意事项</h3>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/关系图.png" style="zoom:50%"></p>
+<p style="text-align:center" ;>图3 成统裁判与其他岗位的关系（图源：微信公众号gd定向）</p>
+<h4 id="报名处">报名处</h4>
+<p>​ 发布赛事消息，让选手报名是很重要的一步，它会影响录入信息的效率。在这里需要以具体使用的成统软件（系统）导入参赛人员模板决定。例如我使用的是华瑞健系统，从图4中可以看出，每一行表示一个参赛选手，意味着我们收集信息就不能像图5一样了，图5中每一行表示的是一个队伍。</p>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/接力赛模板.png" style="zoom:25%"></p>
+<p style="text-align:center" ;>图4 接力赛模板表头</p>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/接力赛收集表头.png" style="zoom:50%"></p>
+<p style="text-align:center" ;>图5 接力赛收集表头</p>
+<p>​ 对于赛事中包含有多种赛项，例如包含短距离、积分赛、百米赛等，我使用的是MySQL的方法提取出不同赛项的参赛人员名单。但是MySQL在导出人员名单时，不太友好，直接打开csv文件会发现格式不对造成的乱码。正确的打开方式是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 对导出的csv文件选择记事本为打开方式</span><br><span class="line">2. 将其另存为xlsx文件，并选择编码方式为ANSI</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/ANSI.png" style="zoom:40%"></p>
+<p style="text-align:center" ;>图6 MySQL中csv转xlsx格式选择</p>
+<h4 id="报到处">报到处</h4>
+<p>​ 需提前将参赛名单、出发批次等信息导出，<strong>打印名单</strong>，便于检录人员进行检录。</p>
+<h4 id="路线设计员">路线设计员</h4>
+<p>​ 路线设计员需给成统裁判路线设计文件，如OCAD文件。紫笔导出文件在华瑞建里只能通过人工输入检查点方式完成。对于大赛事来说，这是一个大工程，需要至少两次人工检查，以免路线错误。同时，确保本地数据更新，与网页端信息一致。</p>
+<h4 id="器材">器材</h4>
+<p>​ 在比赛开始的前一天以下器材需进行准备或检查。</p>
+<table>
+<thead>
+<tr class="header">
+<th>物品名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>电脑</td>
+<td>有足够电量，下载对应驱动，最好多准备一到两台，以防以外</td>
+</tr>
+<tr class="even">
+<td>打卡器</td>
+<td>有足够电量，打得响，经过校时</td>
+</tr>
+<tr class="odd">
+<td>主站</td>
+<td>需用清除卡清除上一场赛事信息</td>
+</tr>
+<tr class="even">
+<td>主站线</td>
+<td>三头一线</td>
+</tr>
+<tr class="odd">
+<td>打印机</td>
+<td>有足够电量</td>
+</tr>
+<tr class="even">
+<td>打印纸</td>
+<td>有足够多</td>
+</tr>
+<tr class="odd">
+<td>打印机连接线</td>
+<td>能够正常连接，并提前测试能够打印成绩</td>
+</tr>
+<tr class="even">
+<td>指卡</td>
+<td>用于测试所有打卡器校时准确</td>
+</tr>
+<tr class="odd">
+<td>笔</td>
+<td>记录临时情况，如临时借出的指卡等</td>
+</tr>
+<tr class="even">
+<td>鼠标、鼠标垫</td>
+<td>方便操作</td>
+</tr>
+<tr class="odd">
+<td>垃圾袋</td>
+<td>装废料成绩条等</td>
+</tr>
+<tr class="even">
+<td>软件</td>
+<td>能正常使用，路线运动员等数据正常</td>
+</tr>
+<tr class="odd">
+<td>成统台</td>
+<td>干净整洁，物品摆放有条理，<strong>不要放任何杂物</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="现场工作">现场工作</h4>
+<p>​ 以下每一步都很重要，需要成统裁判谨慎严格执行。</p>
+<p>​ <strong>1. 布置成统区域</strong></p>
+<p>　 <strong>可视性原则</strong>：成统区域的设计和布置应该保证运动员能够快速根据指引找到成统处。</p>
+<p>　 <strong>可操作性原则</strong>：成统区域应该有足够的空间，方便裁判员进行各项操作。同时应当在成统区域设立警戒线，确保裁判员的操作不被外界打扰。</p>
+<p>​ <strong>2. 检查计时器材，将检查合格的器材交给场地裁判</strong></p>
+<p>　 <strong>检查数量</strong>：检查器材的数量是否符合路线设计的要求。</p>
+<p>​ 　<strong>检查开机</strong>：检查器材是否已正常开机。</p>
+<p>　 <strong>检查时间</strong>：用准确的时间参照点（如对时器）来检查器材时间的准确性。</p>
+<p>​ 　<strong>检查电量</strong>：检查器材的电池电量是否充足，以确保器材在比赛中的正常运行。</p>
+<p>​ 　<strong>检查读卡</strong>：裁判员需要检查计时器是否能够提示打卡轰鸣声或者亮红灯。</p>
+<p>​ 　<strong>进行模拟测试</strong>：模拟比赛中的计时操作和器材的使用情况。检查计时器是否正常记录用时，并逐一查看，以确保计时器的准确性。</p>
+<p>​ <strong>3. 检查成统软件及电脑</strong></p>
+<p>​ 　<strong>检查电脑</strong>：检查电脑是否正常开机、电量是否足够、网络是否通畅。</p>
+<p>​ 　<strong>检查软件</strong>：检查成统软件是否能正常启动，各种参数是否配置正确。</p>
+<p>​ 　<strong>检查数据</strong>：检查赛事数据是否已正常录入，所有参赛队员和控制点信息是否已输入完整、准确无误。</p>
+<p>​ 　<strong>检查外设</strong>：检查主站和打印机是否与电脑正常连接。</p>
+<p>​ 　<strong>检查耗材</strong>：将打印纸等耗材提前放在方便取用的位置。</p>
+<p>​ 　<strong>进行模拟测试</strong>：检查主站是否能正常读卡、打印机是否能正常打印。</p>
+<p>​ <strong>4. 引导运动员有序地到成统处打卡</strong></p>
+<p>​ <strong>5. 守护成统软件，检查读卡信息</strong></p>
+<p>​ 运动员在成统处打卡读成绩的时候，成统裁判不能任由运动员自行打卡，必须紧盯主站和屏幕，检查每个运动员的打卡信息，确保成绩的准确性。</p>
+<p>​ 　<strong>确定成绩正常录入</strong>：确定运动员的成绩已经成功录入系统，否则应提醒运动员再次打卡。</p>
+<p>​ 　<strong>确定运动员编号正确</strong>：裁判员应该核对运动员的编号是否正确，确保运动员打卡的是自己的编号。</p>
+<p>​ 　<strong>确定读卡无异常</strong>：如果发现某个运动员打卡异常，比如说打卡时间与其他运动员相差太大，或者打卡位置不正确，裁判员应该立即处理该异常情况，并做记录。</p>
+<p>​ 　<strong>确定成绩无异常</strong>：如果大多数运动员成绩无效，则应确定是否组别路线配置有误，或者起点处地图发放有误。</p>
+<p>​ 　<strong>确定设备无异常</strong>：对于临时出现的打卡系统问题、打印机问题、网络问题，应当尽快处理。</p>
+<p>​ <strong>6. 解答运动员和教练员的各种问题</strong></p>
+<p>​ 　运动员和教练员对于比赛的各种疑问，往往会到成统处询问。成统裁判不仅应当了解成统岗位的工作，还应了解全局工作安排。</p>
+<p>​ 　解答疑问应遵循<strong>两大原则</strong>：</p>
+<p>​ 对于超出自己权限范围的问题，应当汇报给更高一级的裁判，或者指引对方咨询相应人员。如本次有队伍在接力时地图拿错，应让其汇报给起点裁判。</p>
+<p>​ 对于影响当前读卡工作的问题，应当请对方稍后人少的时候，或者赛后再来咨询。</p>
+<p>​ <strong>7. 快速统计当天比赛的成绩</strong></p>
+<p>　 比赛结束之后通常会马上举行颁奖仪式，所以快速统计成绩尤为重要：</p>
+<p>　　<strong>规程</strong>：一定要提前熟悉比赛规程，掌握本次赛事的统计规则和要求。</p>
+<p>　　<strong>软件</strong>：一定要提前做好软件准备，掌握利用成统软件或者excel快速统计成绩的方法。</p>
+<p>　　<strong>分工</strong>：一定要对成绩统计工作进行提前预判，如果统计工作量大，则将任务分配给不同的人员，分别负责不同的环节，从而可以大大提高效率。</p>
+<p>　　<strong>时机</strong>：把握好统计总成绩的最早时机。根据关门时间和最后一名运动员的出发时刻，可以估算当前是否已经产生前几名的名次，即可先将颁奖所需的名次导出给裁判长，无需等待所有运动员全部回来之后再导出成绩。</p>
+<p>　　<strong>检查</strong>：导出成绩之后，必须仔细检查每一项数据，避免出现纰漏。</p>
+<p>　　<strong>美化</strong>：导出的格式要考虑美观性和可读性。比如不同的组别可用不同的背景色区分，以方便查看。</p>
+<h3 id="后序">后序</h3>
+<p>​ 本次的活动中以成统裁判的身份参与了活动，感触颇深。从运动员信息的录入，到器材的准备，再到最终成绩的发出，属于一个参与了全程活动的角色。在大汗淋漓精疲力竭的运动员完成比赛后拍下主站的那一刻我看到了他们脸上打出有效成绩的欣喜，也看到了打出无效成绩后的沮丧。这让我更深刻地领略到了定向运动的魅力。在其他裁判和运动员都去吃饭时，我们仍在紧急处理成绩统计的问题；在百米决赛惊心动魄的时刻，当大家为运动员欢呼的时候，我们仍在导入决赛名单，无暇观看；当活动结束天色渐暗，大家逐渐离开的时候，我们在蚊子的陪伴下仍在导出最后的成绩。总的来说，这次活动让我深刻认识到了一场成功的赛事活动中成统裁判所承担的责任和艰辛，以后应该会对其他出问题的成统裁判更加包容。这段时间，我们一起克服了许多困难和挑战，付出了大量的时间和精力，但我们也获得了很多宝贵经验。希望以后的成统裁判能够从我们的总结中有所收获。</p>
+<p><img src="/2023/04/18/%E5%AE%9A%E5%90%91%E8%BF%90%E5%8A%A8%E6%88%90%E7%BB%9F%E8%A3%81%E5%88%A4/合影.jpg" style="zoom:10%"></p>
+<p>参考资料</p>
+<p>[1] 一个成统裁判的自我修养 https://mp.weixin.qq.com/s/4SxzICjHn5S9vo8V3PFp_Q</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Life/" rel="tag"># Life</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/05/%E8%BF%91%E6%9C%9F%E4%B8%A4%E5%9C%BA%E5%AE%9A%E5%90%91%E6%AF%94%E8%B5%9B%E6%9C%89%E6%84%9F/" rel="prev" title="回龙埔定向比赛有感">
+      <i class="fa fa-chevron-left"></i> 回龙埔定向比赛有感
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%AC%A1%E6%88%90%E7%BB%9F%E6%96%B9%E9%9D%A2%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">本次成统方面遇到问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E5%90%8D%E5%A4%84"><span class="nav-number">3.1.</span> <span class="nav-text">报名处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E5%88%B0%E5%A4%84"><span class="nav-number">3.2.</span> <span class="nav-text">报到处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%BA%BF%E8%AE%BE%E8%AE%A1%E5%91%98"><span class="nav-number">3.3.</span> <span class="nav-text">路线设计员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%99%A8%E6%9D%90"><span class="nav-number">3.4.</span> <span class="nav-text">器材</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%B0%E5%9C%BA%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.5.</span> <span class="nav-text">现场工作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">后序</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yang Liuyi"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yang Liuyi</p>
+  <div class="site-description" itemprop="description">I am an undergraduate in Shenzhen Technology University, where I focus on learning ML, specially Bio-Inspired Learning.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Liuyi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e318d35b95e542660819',
+      clientSecret: '9f45b815b14f5acc0db39d02941c482d038e9aa9',
+      repo        : 'superheroyly.github.io',
+      owner       : 'superheroyly',
+      admin       : ['yly'],
+      id          : '3b4925babbfabaa50c518f1156eda3f4',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
