@@ -1,29 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-y.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <div id="gitalk-container"></div>
-    <!--
- * @Author: superheroyly 1183140624@qq.com
- * @Date: 2024-08-22 11:50:17
- * @LastEditors: superheroyly 1183140624@qq.com
- * @LastEditTime: 2024-08-22 11:50:33
- * @FilePath: \blog\themes\next\layout\_plugins\gitalk.ejs
- * @Description: 
--->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
-<div id="gitalk-container"></div>
-<script type="text/javascript">
-      var gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: 'superheroyly.github.io',
-        owner: 'superheroyly',
-        admin: '',
-        id: ,
-        labels: 'Gitalk'.split(',').filter(l => l),
-        perPage: ,
-        pagerDirection: 'last',
-        createIssueManually: true,
-        distractionFreeMode: false
-      })
-      gitalk.render('gitalk-container')
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="简单记录一下体测那天的心路历程吧~ 事发前——内心不安 还记得，那天是十二点多才入眠，所以应该是六个钟多的睡眠。凌晨十二点多，隔壁hm兄进来我们宿舍，看我们全员没睡觉，还提醒了一句，“明天要体测啊！”。是噢，明天要体测耶，但我并不是很在意，因为当时想着如果明天有哪一项没能发挥好，就隔天再去重新测一次就好了。尽管如此，我还是在人民日报夜读下结束了一天。 大二🐕周二上午当然是满课的，预期午觉40">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一级痛苦——拉伤">
+<meta property="og:url" content="http://example.com/2021/11/19/%E4%B8%80%E7%BA%A7%E7%97%9B%E8%8B%A6%E2%80%94%E2%80%94%E6%8B%89%E4%BC%A4/index.html">
+<meta property="og:site_name" content="Yang Liuyi">
+<meta property="og:description" content="简单记录一下体测那天的心路历程吧~ 事发前——内心不安 还记得，那天是十二点多才入眠，所以应该是六个钟多的睡眠。凌晨十二点多，隔壁hm兄进来我们宿舍，看我们全员没睡觉，还提醒了一句，“明天要体测啊！”。是噢，明天要体测耶，但我并不是很在意，因为当时想着如果明天有哪一项没能发挥好，就隔天再去重新测一次就好了。尽管如此，我还是在人民日报夜读下结束了一天。 大二🐕周二上午当然是满课的，预期午觉40">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/11/19/%E4%B8%80%E7%BA%A7%E7%97%9B%E8%8B%A6%E2%80%94%E2%80%94%E6%8B%89%E4%BC%A4/strain/strain1.jpg">
+<meta property="article:published_time" content="2021-11-19T06:34:49.000Z">
+<meta property="article:modified_time" content="2022-12-18T11:58:59.911Z">
+<meta property="article:author" content="Yang Liuyi">
+<meta property="article:tag" content="Life">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/11/19/%E4%B8%80%E7%BA%A7%E7%97%9B%E8%8B%A6%E2%80%94%E2%80%94%E6%8B%89%E4%BC%A4/strain/strain1.jpg">
+
+<link rel="canonical" href="http://example.com/2021/11/19/%E4%B8%80%E7%BA%A7%E7%97%9B%E8%8B%A6%E2%80%94%E2%80%94%E6%8B%89%E4%BC%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
 </script>
+
+  <title>一级痛苦——拉伤 | Yang Liuyi</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yang Liuyi</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/superheroyly/superheroyly.github.io" class="github-corner" title="Superheroyly GitHub" aria-label="Superheroyly GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/19/%E4%B8%80%E7%BA%A7%E7%97%9B%E8%8B%A6%E2%80%94%E2%80%94%E6%8B%89%E4%BC%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yang Liuyi">
+      <meta itemprop="description" content="I am a master student at Shenzhen University, focusing on learning ML, especially the Medical Image Segment. I am fond of orienteering although I have poor skills.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Liuyi">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一级痛苦——拉伤
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-19 14:34:49" itemprop="dateCreated datePublished" datetime="2021-11-19T14:34:49+08:00">2021-11-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-18 19:58:59" itemprop="dateModified" datetime="2022-12-18T19:58:59+08:00">2022-12-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>简单记录一下体测那天的心路历程吧~</p>
+<h3 id="事发前内心不安">事发前——内心不安</h3>
+<p>还记得，那天是十二点多才入眠，所以应该是六个钟多的睡眠。凌晨十二点多，隔壁hm兄进来我们宿舍，看我们全员没睡觉，还提醒了一句，“明天要体测啊！”。是噢，明天要体测耶，但我并不是很在意，因为当时想着如果明天有哪一项没能发挥好，就隔天再去重新测一次就好了。尽管如此，我还是在人民日报夜读下结束了一天。 大二🐕周二上午当然是满课的，预期午觉40分钟，养精蓄锐。下午一点，上床准备好好休息一阵。没想到，浅睡眠的我抗干扰能力极弱，不到十来分钟被两位舍友收拾准备出门的声音吵醒。睡意全无，临近体测那颗蠢蠢欲动的心在此刻让我难以小憩。躺没一会儿，便起身换“装备”前往体育馆。 前往体育馆的路上，感觉自己的大腿肌肉还是蛮僵硬的。（这可能这就是出事的预兆吧）找到组织后做着常规的热身动作，便到体育馆先后完成了视力、BMI、跳远，由于人数多队伍长，花了将近四十分钟时间。穿着三分裤短袖的我身体必然是冷了。/(ㄒoㄒ)/~~</p>
+<span id="more"></span>
+<h3 id="事发时半与世隔">事发时——半与世隔</h3>
+<p>看着体育馆满满的人，决定先测田径场的项目。50米队伍不长，排没一会就到了，和我一组的是葛会长。对50米还是太陌生了，完全疏忽了它的高强度，没有再次做热身，便上道准备冲刺。因为在排队等候时，已经熟悉掌握了发令点，所以我准确地压在起跑口令冲了出去，前半程感觉还可以，速度上来了。然而，就在距终点七八米距离，没有一点点征兆，左大腿内侧猛地一抽，我秒换痛苦面具💀，随后，由于当时穿的是PB（鞋底较厚较弹）我的下一步落地脚（右脚）落地不稳向右侧摔倒，头部着地后，顿时失去了知觉， 当时感觉很想睡过去，眼前的世界仅有百分之十。不知道能不能说是离昏迷最近的一次了，好在身边有队友，他们立马向我靠来，将我背到就近的医疗站。在葛会长（当时不清楚是谁背着我，当晚询问过后才知道）背到医疗站草地，再到后来一段时间，头都处于极度昏迷的状态。就属于（眼前的黑，不是黑；你说的白，是什么白）那种感觉……</p>
+<h3 id="事发后爱惜身体">事发后——爱惜身体</h3>
+<p>体测已经过去，待校运会能惊艳复出🤗 伤势总述：左大腿内侧拉伤，右脚踝扭伤 为了杜绝此类事件再次发生，我想我应该做到以下几点:</p>
+<ol type="1">
+<li>在进行剧烈运动前，留足至少半小时热身，尤其是髋部</li>
+<li>保证充足睡眠，不熬夜</li>
+<li>运动前尽量让自己兴奋起来，不仅是个人情绪更是肌肉神经</li>
+<li>时刻注意保暖，备好衣服，没到赛场上不更衣 如果，很不幸遇到组织损伤等情况，希望您能在24小时内进行冰敷处理，使局部毛细血管收缩，减少局部出血，两三天后，局部无明显出血时，可以进行局部热敷，促进血肿吸收。</li>
+</ol>
+<p><img src="/2021/11/19/%E4%B8%80%E7%BA%A7%E7%97%9B%E8%8B%A6%E2%80%94%E2%80%94%E6%8B%89%E4%BC%A4/strain/strain1.jpg" width="50%"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Life/" rel="tag"># Life</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/12/%E4%BA%8C%E6%88%98%E6%A0%A1%E8%BF%90%E4%BC%9A/" rel="next" title="二战校运会">
+      二战校运会 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8F%91%E5%89%8D%E5%86%85%E5%BF%83%E4%B8%8D%E5%AE%89"><span class="nav-number">1.</span> <span class="nav-text">事发前——内心不安</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8F%91%E6%97%B6%E5%8D%8A%E4%B8%8E%E4%B8%96%E9%9A%94"><span class="nav-number">2.</span> <span class="nav-text">事发时——半与世隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8F%91%E5%90%8E%E7%88%B1%E6%83%9C%E8%BA%AB%E4%BD%93"><span class="nav-number">3.</span> <span class="nav-text">事发后——爱惜身体</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yang Liuyi"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yang Liuyi</p>
+  <div class="site-description" itemprop="description">I am a master student at Shenzhen University, focusing on learning ML, especially the Medical Image Segment. I am fond of orienteering although I have poor skills.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Liuyi</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">18 mins.</span>
+</div>
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      Visitors to this site:<span id="busuanzi_value_site_pv"></span>
+    </span>
+</div>
+
+  <!-- <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+  -->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e318d35b95e542660819',
+      clientSecret: '9f45b815b14f5acc0db39d02941c482d038e9aa9',
+      repo        : 'superheroyly.github.io',
+      owner       : 'superheroyly',
+      admin       : ['yly'],
+      id          : '9ef6922905a8688368b1f0b2715850c6',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+</body>
+</html>

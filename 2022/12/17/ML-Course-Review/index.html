@@ -1,29 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-y.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <div id="gitalk-container"></div>
-    <!--
- * @Author: superheroyly 1183140624@qq.com
- * @Date: 2024-08-22 11:50:17
- * @LastEditors: superheroyly 1183140624@qq.com
- * @LastEditTime: 2024-08-22 11:50:33
- * @FilePath: \blog\themes\next\layout\_plugins\gitalk.ejs
- * @Description: 
--->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
-<div id="gitalk-container"></div>
-<script type="text/javascript">
-      var gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: 'superheroyly.github.io',
-        owner: 'superheroyly',
-        admin: '',
-        id: ,
-        labels: 'Gitalk'.split(',').filter(l => l),
-        perPage: ,
-        pagerDirection: 'last',
-        createIssueManually: true,
-        distractionFreeMode: false
-      })
-      gitalk.render('gitalk-container')
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="期末复习：  监督类型：有监督学习，半监督学习，无监督学习（区别重点） 有监督学习：分类，回归（预测值） 有监督学习算法：线性回归，逻辑回归，决策树，随机森林 无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE 机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据 过拟合处理方法： 简化模型（选择较少参数的模型，例如选择线性模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML Course Review">
+<meta property="og:url" content="http://example.com/2022/12/17/ML-Course-Review/index.html">
+<meta property="og:site_name" content="Yang Liuyi">
+<meta property="og:description" content="期末复习：  监督类型：有监督学习，半监督学习，无监督学习（区别重点） 有监督学习：分类，回归（预测值） 有监督学习算法：线性回归，逻辑回归，决策树，随机森林 无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE 机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据 过拟合处理方法： 简化模型（选择较少参数的模型，例如选择线性模型">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/DT_question.jpg">
+<meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/entropy.png">
+<meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/gini.png">
+<meta property="og:image" content="http://example.com/2022/12/17/ML-Course-Review/pca.png">
+<meta property="article:published_time" content="2022-12-17T02:40:22.000Z">
+<meta property="article:modified_time" content="2022-12-18T11:56:09.808Z">
+<meta property="article:author" content="Yang Liuyi">
+<meta property="article:tag" content="Academy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/12/17/ML-Course-Review/DT_question.jpg">
+
+<link rel="canonical" href="http://example.com/2022/12/17/ML-Course-Review/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
 </script>
+
+  <title>ML Course Review | Yang Liuyi</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yang Liuyi</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/superheroyly/superheroyly.github.io" class="github-corner" title="Superheroyly GitHub" aria-label="Superheroyly GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/17/ML-Course-Review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yang Liuyi">
+      <meta itemprop="description" content="I am a master student at Shenzhen University, focusing on learning ML, especially the Medical Image Segment. I am fond of orienteering although I have poor skills.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Liuyi">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ML Course Review
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-17 10:40:22" itemprop="dateCreated datePublished" datetime="2022-12-17T10:40:22+08:00">2022-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-18 19:56:09" itemprop="dateModified" datetime="2022-12-18T19:56:09+08:00">2022-12-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="期末复习"><strong>期末复习</strong>：</h2>
+<ol type="1">
+<li><p>监督类型：有监督学习，半监督学习，无监督学习（区别重点）</p></li>
+<li><p>有监督学习：分类，回归（预测值）</p></li>
+<li><p>有监督学习算法：线性回归，逻辑回归，决策树，随机森林</p></li>
+<li><p>无监督学习算法：PCA，奇异值分解，单类SVM，t-SNE</p></li>
+<li><p>机器学习的主要挑战：训练数据的数量不足、训练数据不具代表性、无关特征、过拟合训练数据、欠拟合训练数据</p></li>
+<li><p>过拟合处理方法： 简化模型（选择较少参数的模型，例如选择线性模型而不是高阶多项式模型）； 减少训练数据中的属性数量，或者是约束模型； 收集更多的训练数据； 减少训练数据中的噪声（例如，修复数据错误和消除异常值）；</p></li>
+<li><p>欠拟合处理方法： 选择一个带有更多参数、更强大的模型； 给学习算法提供更好的特征集（进行特征工程）； 减少模型中的约束（例如，减少正则化超参数）；</p></li>
+<li><p>选择性能指标：RMSE（均方根误差Root Mean Square Error，对异常值更加敏感），MAE（平均绝对值误差，Mean Absolute Error）</p></li>
+<li><p>数据处理方法：特征缩放 MinMaxScaler() <span class="math display">\[
+X_{std} = \frac{X - X_{min}}{X_{max} - X_{min}} 
+\]</span> StandardScaler() <span class="math display">\[
+X_{std} = \frac{X - \mu}{s}
+\]</span> <span id="more"></span></p></li>
+<li><p>K-折交叉检验：随机分为k个子集，k-1个训练，1个评估，进行k次训练，得到的分数取平均值</p></li>
+<li><p>评价指标：混淆矩阵，精度，召回率，F1分数，Roc曲线 精度 <span class="math display">\[
+Precision = \frac{TP}{TP + FP}
+\]</span> 召回率 <span class="math display">\[
+Recall = \frac{TP}{TP + FN}
+\]</span> F1分数 <span class="math display">\[
+F1-score = \frac{2 \times Precision \times Recall }{Precision + Recall}
+\]</span> ROC曲线 Receiver Operating Characteristic，受试者工作特征曲线，为FPR与TPR之间的关系曲线。FPR、TPR（Recall）分别表示代价和收益，显然收益越高、代价越低，模型性能越好。 <span class="math display">\[
+\begin{align}
+    TPR = \frac{TP}{TP+FN}，真阳性率 \\ \\
+    FPR = \frac{FP}{TN+FP}，假阳性率
+\end{align}
+\]</span></p></li>
+<li><p>梯度下降：</p></li>
+<li><p>学习曲线概念：学习曲线就是通过画出不同<strong>训练集大小</strong>时训练集和交叉验证的<strong>准确率</strong>，可以看到模型在新数据上的表现，进而来判断模型是否方差偏高或偏差过高，以及增大训练集是否可以减小过拟合。<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1796345">机器学习中学习曲线的妙用</a></p></li>
+<li><p>正则化模型：岭回归，Lasso，弹性网络。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Belter/p/8536939.html">正规化</a></p></li>
+<li><p>逻辑回归：（二分类问题）</p></li>
+<li><p>理解SVM的运作原理：</p></li>
+<li><p>支持向量机基本型：</p></li>
+<li><p>决策树模型计算(ID3算法)： Data:</p>
+<p><img src="/2022/12/17/ML-Course-Review/DT_question.jpg" alt="Question" style="zoom:35%;"></p>
+<p><img src="/2022/12/17/ML-Course-Review/entropy.png" alt="entropy" style="zoom:36%;"></p></li>
+<li><p>决策树模型计算(CART算法)：</p>
+<p><img src="/2022/12/17/ML-Course-Review/gini.png" alt="gini" style="zoom:36%;"></p></li>
+<li><p>Bagging（并行，有放回选取）：思想“三个臭皮匠，顶个诸葛亮。”</p></li>
+<li><p>Boosting（串行，不断调整样本权重） ：思想“Your best teacher is your last mistake.” <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/91846911">Bagging和Boosting的总结</a></p></li>
+<li><p>主成分分析PCA的思想和计算（计算：去平均值，计算协方差矩阵，特征值和特征向量）：</p>
+<p><img src="/2022/12/17/ML-Course-Review/pca.png" alt="pca" style="zoom:36%;"></p></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Academy/" rel="tag"># Academy</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/19/%E5%AE%9D%E5%AE%89%E5%87%A4%E5%87%B0%E5%8F%A4%E6%9D%91-%E7%A7%AF%E5%88%86%E8%B5%9B/" rel="prev" title="宝安凤凰古村-积分赛">
+      <i class="fa fa-chevron-left"></i> 宝安凤凰古村-积分赛
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/12/23/%E7%BD%97%E6%B5%AE%E5%B1%B1%E5%8F%A4%E9%A9%BF%E9%81%93%E5%AE%9A%E5%90%91%E5%9B%A2%E9%98%9F%E8%B5%9B/" rel="next" title="罗浮山古驿道定向团队赛">
+      罗浮山古驿道定向团队赛 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">期末复习：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yang Liuyi"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Yang Liuyi</p>
+  <div class="site-description" itemprop="description">I am a master student at Shenzhen University, focusing on learning ML, especially the Medical Image Segment. I am fond of orienteering although I have poor skills.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Liuyi</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">18 mins.</span>
+</div>
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      Visitors to this site:<span id="busuanzi_value_site_pv"></span>
+    </span>
+</div>
+
+  <!-- <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+  -->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e318d35b95e542660819',
+      clientSecret: '9f45b815b14f5acc0db39d02941c482d038e9aa9',
+      repo        : 'superheroyly.github.io',
+      owner       : 'superheroyly',
+      admin       : ['yly'],
+      id          : '268d625edecf408907e40395e5dd4565',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+</body>
+</html>
