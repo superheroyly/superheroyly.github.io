@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ESN代码解析</title>
-    <url>/2022/03/29/ESN%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<span id="more"></span>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># 因为py文件不支持中文（包括注释里的），因此需要使用这段代码将就文件编码类型改为UTF-8的类型。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">A minimalistic Echo State Networks demo with Mackey-Glass (delay 17) data</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> linalg</span><br><span class="line"> </span><br><span class="line"><span class="comment"># numpy.linalg is also an option for even fewer dependencies</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># load the data</span></span><br><span class="line"><span class="comment"># 训练集和测试集各选择2000个数据，前100项用于初始化储备池（热启动），让储备池中形成良好的回声后再开始训练。</span></span><br><span class="line">trainLen = <span class="number">2000</span></span><br><span class="line">testLen = <span class="number">2000</span></span><br><span class="line">initLen = <span class="number">100</span></span><br><span class="line">data = np.loadtxt(<span class="string">&#x27;MackeyGlass_t17.txt&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># plot some of it  展示前1000个数据  0表示图像编号</span></span><br><span class="line">plt.figure(<span class="number">0</span>).clear()</span><br><span class="line">plt.plot(data[:<span class="number">1000</span>])  <span class="comment"># 横轴范围是0~1000</span></span><br><span class="line">plt.title(<span class="string">&#x27;A sample of data&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># generate the ESN reservoir 生成ESN储层</span></span><br><span class="line">inSize = outSize = <span class="number">1</span>  <span class="comment"># 输入维数=输出维数</span></span><br><span class="line">resSize = <span class="number">1000</span>  <span class="comment"># 储备池规模</span></span><br><span class="line">a = <span class="number">0.3</span>  <span class="comment"># leaking rate 泄露率α（储备池的更新速度）</span></span><br><span class="line">np.random.seed(<span class="number">42</span>)  <span class="comment"># 随机种子</span></span><br><span class="line">Win = (np.random.rand(resSize, <span class="number">1</span> + inSize) - <span class="number">0.5</span>) * <span class="number">1</span>  <span class="comment"># 设随机输入矩阵[1000, 2]，值[0,1]</span></span><br><span class="line">W = np.random.rand(resSize, resSize) - <span class="number">0.5</span>  <span class="comment"># 内部连接权值矩阵[1000,1000]，邻接矩阵</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 对W进行缩放，以满足稀疏的要求</span></span><br><span class="line"><span class="comment"># 法一：直接缩放（快但有脏数据①）--&gt; W *= 0.135  ①：不可信数据、缺失数据、异常数据</span></span><br><span class="line"><span class="comment"># 法二：归一化并设置谱半径（慢但正确）</span></span><br><span class="line"><span class="comment"># normalizing and setting spectral radius (correct, slow):  归一化和设置光谱半径</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Computing spectral radius...&#x27;</span>)</span><br><span class="line"><span class="comment"># linalg.eig(W)[0]：特征值  linalg.eig(W)[1]：特征向量</span></span><br><span class="line">rhoW = <span class="built_in">max</span>(<span class="built_in">abs</span>(linalg.eig(W)[<span class="number">0</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;done.&#x27;</span>)</span><br><span class="line"><span class="comment"># 谱半径归一化处理</span></span><br><span class="line">W *= <span class="number">1.25</span> / rhoW</span><br><span class="line"><span class="comment"># print(&#x27;W:&#x27;,W)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># allocated memory for the design (collected states) matrix 分配内存设计零矩阵</span></span><br><span class="line">X = np.zeros((<span class="number">1</span> + inSize + resSize, trainLen - initLen))  <span class="comment"># 储备池的状态矩阵x(t)：每一列是每个时刻的储备池状态。</span></span><br><span class="line"><span class="comment"># set the corresponding target matrix directly  直接设置对应的目标矩阵</span></span><br><span class="line">Yt = data[<span class="literal">None</span>, initLen + <span class="number">1</span>:trainLen + <span class="number">1</span>]  <span class="comment"># 输出矩阵：每一行是每一个时刻的输出 (1, 1900)</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># run the reservoir with the data and collect X</span></span><br><span class="line"><span class="comment"># 运行Reservoir并放到x中</span></span><br><span class="line"><span class="comment"># 输入所有的训练数据，然后得到每一时刻的输入值和储备池状态</span></span><br><span class="line">x = np.zeros((resSize, <span class="number">1</span>))  <span class="comment"># 矩阵x[1000,1]</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(trainLen):  <span class="comment"># 训练2000次</span></span><br><span class="line">    u = data[t]  <span class="comment"># 输入数据u，读入一行数据</span></span><br><span class="line">    <span class="comment"># print(&quot;data[t]&quot;, u)</span></span><br><span class="line">    <span class="comment"># print(&quot;shape: &quot;, x.shape, W.shape, Win.shape) # (1000, 1) (1000, 1000) (1000, 2)</span></span><br><span class="line">    <span class="comment"># temp = np.vstack((1,u)) # (2,1)</span></span><br><span class="line">    <span class="comment"># print(temp.shape, &quot; &quot;, temp)</span></span><br><span class="line">    x = (<span class="number">1</span> - a) * x + a * np.tanh(np.dot(W, x) + np.dot(Win, np.vstack((<span class="number">1</span>, u))))</span><br><span class="line">    <span class="comment"># vstack((1,u))将偏置量1加入输入序列</span></span><br><span class="line">    <span class="comment"># np.vstack 按垂直方向堆叠数组构成一个新的数组,堆叠的数组需要具有相同的维度</span></span><br><span class="line">    <span class="comment"># u为一个值，np.vstack后，变为（2，1)--&gt;[[1][u]],Win(1000,2)</span></span><br><span class="line">    <span class="keyword">if</span> t &gt;= initLen:</span><br><span class="line">        <span class="comment"># print(x.shape) # (1000, 1)</span></span><br><span class="line">        tem = np.vstack((<span class="number">1</span>, u, x))</span><br><span class="line">        <span class="comment"># print(tem.shape) # (1002, 1)</span></span><br><span class="line">        X[:, t - initLen] = np.vstack((<span class="number">1</span>, u, x))[:, <span class="number">0</span>] <span class="comment"># [[1] [u] [...]...] 垂直堆叠--&gt;(1002, 1)</span></span><br><span class="line"><span class="comment"># print(&#x27;X:&#x27;,X)</span></span><br><span class="line"><span class="comment"># print(X.shape) # (1002, 1900)</span></span><br><span class="line"><span class="comment"># 此处initLen之前初始化reservoir，所以最终X有1900项</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># train the output by ridge regression 通过岭回归训练输出</span></span><br><span class="line">reg = <span class="number">1e-8</span>  <span class="comment"># regularization coefficient 正则化系数</span></span><br><span class="line"><span class="comment"># direct equations from texts:</span></span><br><span class="line"><span class="comment"># X_T = X.T</span></span><br><span class="line"><span class="comment"># Wout = np.dot( np.dot(Yt,X_T), linalg.inv( np.dot(X,X_T) + \</span></span><br><span class="line"><span class="comment">#    reg*np.eye(1+inSize+resSize) ) )</span></span><br><span class="line"><span class="comment"># using scipy.linalg.solve:</span></span><br><span class="line"><span class="comment"># numpy.linalg.solve(a, b)  a系数矩阵，b纵坐标或因变量的值，返回值意义：方程组ax=b的解</span></span><br><span class="line"><span class="comment"># np.eye()作用是返回一个对角线上全是1，而其他位置全为0的一个二维数组</span></span><br><span class="line">Wout = linalg.solve(np.dot(X, X.T) + reg * np.eye(<span class="number">1</span> + inSize + resSize),</span><br><span class="line">                    np.dot(X, Yt.T)).T  <span class="comment"># (1, 1002)</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># run the trained ESN in a generative mode. no need to initialize here,</span></span><br><span class="line"><span class="comment"># because x is initialized with training data and we continue from there.</span></span><br><span class="line">Y = np.zeros((outSize, testLen))</span><br><span class="line">u = data[trainLen]</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(testLen):  <span class="comment"># 测试数据集</span></span><br><span class="line">    x = (<span class="number">1</span> - a) * x + a * np.tanh(np.dot(Win, np.vstack((<span class="number">1</span>, u))) + np.dot(W, x))</span><br><span class="line">    <span class="comment"># 输出矩阵 * 此刻状态矩阵 = 此刻预测值</span></span><br><span class="line">    y = np.dot(Wout, np.vstack((<span class="number">1</span>, u, x))) <span class="comment"># (1, 1002) (1002, 1) (1,1)</span></span><br><span class="line">    <span class="comment"># t时刻的预测值 Y: 1 * testLen</span></span><br><span class="line">    Y[:, t] = y</span><br><span class="line">    <span class="comment"># generative mode:</span></span><br><span class="line">    u = y</span><br><span class="line">    <span class="comment"># this would be a predictive mode:</span></span><br><span class="line">    <span class="comment"># u = data[trainLen+t+1]</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># compute MSE for the first errorLen time steps 用MSE计算errorLen时间步长</span></span><br><span class="line">errorLen = <span class="number">500</span></span><br><span class="line">mse = <span class="built_in">sum</span>(np.square(data[trainLen + <span class="number">1</span>:trainLen + errorLen + <span class="number">1</span>] -</span><br><span class="line">                    Y[<span class="number">0</span>, <span class="number">0</span>:errorLen])) / errorLen</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;MSE = &#x27;</span> + <span class="built_in">str</span>(mse))</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 绘制测试集的真实数据和预测数据</span></span><br><span class="line">plt.figure(<span class="number">1</span>).clear()</span><br><span class="line">plt.plot(data[trainLen + <span class="number">1</span>:trainLen + testLen + <span class="number">1</span>], <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">plt.plot(Y.T, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Target and generated signals $y(n)$ starting at $n=0$&#x27;</span>)</span><br><span class="line">plt.legend([<span class="string">&#x27;Target signal&#x27;</span>, <span class="string">&#x27;Free-running predicted signal&#x27;</span>])</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 绘制储备池中前200个时刻状态x(t)的20个储层结点值</span></span><br><span class="line">plt.figure(<span class="number">2</span>).clear()</span><br><span class="line">plt.plot(X[<span class="number">0</span>:<span class="number">20</span>, <span class="number">0</span>:<span class="number">200</span>].T)  <span class="comment"># 20条 横坐标范围0-200</span></span><br><span class="line">plt.title(<span class="string">r&#x27;Some reservoir activations $\mathbf&#123;x&#125;(n)$&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 绘制输出矩阵</span></span><br><span class="line">plt.figure(<span class="number">3</span>).clear()</span><br><span class="line">plt.bar(np.arange(<span class="number">1</span> + inSize + resSize), Wout[<span class="number">0</span>].T)  <span class="comment"># bar垂直条形图</span></span><br><span class="line">plt.title(<span class="string">r&#x27;Output weights $\mathbf&#123;W&#125;^&#123;out&#125;$&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/03/29/ESN%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/esn.jpg" width="70%"></p>
-]]></content>
-      <tags>
-        <tag>Academy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ML Course Review</title>
     <url>/2022/12/17/ML-Course-Review/</url>
     <content><![CDATA[<h2 id="期末复习"><strong>期末复习</strong>：</h2>
@@ -280,20 +269,6 @@ F1-score = \frac{2 \times Precision \times Recall }{Precision + Recall}
       </tags>
   </entry>
   <entry>
-    <title>宝安凤凰古村-积分赛</title>
-    <url>/2022/11/19/%E5%AE%9D%E5%AE%89%E5%87%A4%E5%87%B0%E5%8F%A4%E6%9D%91-%E7%A7%AF%E5%88%86%E8%B5%9B/</url>
-    <content><![CDATA[<p>​ 今年跑的积分赛屈指可数，本来今天有两场的，但是由于疫情防控，上午福田的百点积分赛被迫取消。</p>
-<p>​ 下午宝安的凤凰古村积分赛如期进行，赛事方准备了一系列活动迎接此次比赛的到来，赛事工作做得很好。下午两点多，选手准备出发了。赛前，准备用笔画出将要跑的路线。比赛开始后，我大致观察了地图，然后按照大致的路线圈画了一下。在选手们都出发完了，我仍在画线路，我感到有点不安，在画了四分之三路线后便出发了。<span id="more"></span></p>
-<p>​ 由于出发的晚，每个点基本都有好几个人在挡着，自己入图太慢，没有注意阶梯、树等标志性建筑，导致连贯性很差。在过了四五个点后，能够确立站立点稳步前进，但是发现由于路线规划没做好，实际跑的过程中认为有更加好的路线选择，并没有严格根据所画的路线来。这一点，不仅让我花时间画路线失去了一定意义，同时导致后面的跑图过程中，忘记了自己是否去过某个点，很容易漏点！</p>
-<p>​ 这张图跑下来，有以下总结：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 画路线时，不需要画详细，大致的路线即可。</span><br><span class="line">2. 尽量将所有点圈起来，除非是特别奇怪的点。</span><br><span class="line">3. 蛇形绕法圈图，减少路线冗余。（走回头路）</span><br><span class="line">4. 至少提前看一至两个点的路线，及时转图。</span><br><span class="line">5. 注意图例大小，适应地图比例尺。</span><br><span class="line">6. 注意特殊图例，例如：消防栓。</span><br><span class="line">7. 注意100号点位置，通常将其所在附近的点放到最后再打。</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/11/19/%E5%AE%9D%E5%AE%89%E5%87%A4%E5%87%B0%E5%8F%A4%E6%9D%91-%E7%A7%AF%E5%88%86%E8%B5%9B/map.png" width="70%"></p>
-]]></content>
-      <tags>
-        <tag>Life</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>悲喜交加的六月</title>
     <url>/2022/07/01/%E6%82%B2%E5%96%9C%E4%BA%A4%E5%8A%A0%E7%9A%84%E5%85%AD%E6%9C%88/</url>
     <content><![CDATA[<p>随着操作系统考试结束，期末考试仅剩下毛概，本学期也步入尾声。终于，有时间好好反思这段时间的得与失了。</p>
@@ -304,6 +279,20 @@ F1-score = \frac{2 \times Precision \times Recall }{Precision + Recall}
 <p>大运会回来后，自己的情绪一直处于低落状态。而我还有研究报告、一周后的期末考试。直到期末考试前两天，我还在CRAIC比赛上进行线上答辩。相比于上学期，复习时间大大减少，对于期末考试只求能混个A。这星期考下来，算法和操作系统感觉不是很好，能拿A的话那真是老天保佑了。</p>
 <p>最后，祝超哥和柏林学长毕业快乐！💐</p>
 <p><img src="/2022/07/01/%E6%82%B2%E5%96%9C%E4%BA%A4%E5%8A%A0%E7%9A%84%E5%85%AD%E6%9C%88/Changlong.jpg" width="50%"></p>
+]]></content>
+      <tags>
+        <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝安凤凰古村-积分赛</title>
+    <url>/2022/11/19/%E5%AE%9D%E5%AE%89%E5%87%A4%E5%87%B0%E5%8F%A4%E6%9D%91-%E7%A7%AF%E5%88%86%E8%B5%9B/</url>
+    <content><![CDATA[<p>​ 今年跑的积分赛屈指可数，本来今天有两场的，但是由于疫情防控，上午福田的百点积分赛被迫取消。</p>
+<p>​ 下午宝安的凤凰古村积分赛如期进行，赛事方准备了一系列活动迎接此次比赛的到来，赛事工作做得很好。下午两点多，选手准备出发了。赛前，准备用笔画出将要跑的路线。比赛开始后，我大致观察了地图，然后按照大致的路线圈画了一下。在选手们都出发完了，我仍在画线路，我感到有点不安，在画了四分之三路线后便出发了。<span id="more"></span></p>
+<p>​ 由于出发的晚，每个点基本都有好几个人在挡着，自己入图太慢，没有注意阶梯、树等标志性建筑，导致连贯性很差。在过了四五个点后，能够确立站立点稳步前进，但是发现由于路线规划没做好，实际跑的过程中认为有更加好的路线选择，并没有严格根据所画的路线来。这一点，不仅让我花时间画路线失去了一定意义，同时导致后面的跑图过程中，忘记了自己是否去过某个点，很容易漏点！</p>
+<p>​ 这张图跑下来，有以下总结：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 画路线时，不需要画详细，大致的路线即可。</span><br><span class="line">2. 尽量将所有点圈起来，除非是特别奇怪的点。</span><br><span class="line">3. 蛇形绕法圈图，减少路线冗余。（走回头路）</span><br><span class="line">4. 至少提前看一至两个点的路线，及时转图。</span><br><span class="line">5. 注意图例大小，适应地图比例尺。</span><br><span class="line">6. 注意特殊图例，例如：消防栓。</span><br><span class="line">7. 注意100号点位置，通常将其所在附近的点放到最后再打。</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/11/19/%E5%AE%9D%E5%AE%89%E5%87%A4%E5%87%B0%E5%8F%A4%E6%9D%91-%E7%A7%AF%E5%88%86%E8%B5%9B/map.png" width="70%"></p>
 ]]></content>
       <tags>
         <tag>Life</tag>
@@ -567,20 +556,6 @@ F1-score = \frac{2 \times Precision \times Recall }{Precision + Recall}
       </tags>
   </entry>
   <entry>
-    <title>第一次数模之旅</title>
-    <url>/2022/02/22/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B0%E6%A8%A1%E4%B9%8B%E6%97%85/</url>
-    <content><![CDATA[<p>九点零七分我们将论文发到了组委会邮箱，并坐在电脑前等待了十五分钟之久，因为可能会出现邮件投递失败的情况。一分钟，三分钟，五分钟……经过焦急地等待，没有收到邮件投递失败的通知。结束了，真的结束了。长达96小时的比赛，终于结束了。</p>
-<p>数学建模竞赛，第一次听说该比赛是在大一的时候。它一般需要三人组队（不多于三人）协作共同解决一个具体问题，最终以论文的形式展现。当时看身边的人，还不少参加过这类比赛并拿奖的。所以，自己也是蠢蠢欲动。在向高数老师说明情况后，了解到这需要自己拉队友组队。后来也不知道什么原因，就没有下文了。</p>
-<span id="more"></span>
-<p>寒假某天，老朋友小成突然找联系我，问我有没有兴趣参加数模比赛。再仔细了解后，觉得小组任务定位蛮适合我的，随即就答应了。经过实则不到15天的培训，我们这临时组的队伍便“出征”了。</p>
-<p>比赛前，我想若美赛难度和培训期间的模拟训练难度差不多，那倒也不用过于担心。第一天看到题目后，我意识到自己错了。题目难度完全不是一个水平，对于我们这支小白队伍来说，难度还是蛮大的。一是我们能做的题目类型有限，其它类型的题目专业性太强直接排除。二是对于能看得懂的题目，设问多、要求多、难以衡量标准、难入手。在比赛的前两天时间，感觉整体上是压抑的。方法结果不尽人意，论文没有进展，难以找到突破口。但我们仍坚持着相信可以完成选题，继续查阅资料，搜集数据，找到解题的方法。时间一天天过去，到了第四天的比赛日，我们的论文却还差一大截，很是让人捉急。最后一个晚上，为了赶进度，我们几乎都只休息了半个钟便又忙起眼前的事。可能，这是自己第一次真正意义上的通宵。因为有任务未完成，所以自己也没有感到特别困倦，反倒是这几天深圳赶上了入秋以来最冷的几天，冰冷的双手在键盘上来回敲击，身体时不时打着寒颤（也有紧张的因素）。就这样，从当天晚饭后一直持续到次日九点，13小时多的奋战结束了。美赛落下帷幕，但由内而外的紧张感却迟迟未褪去，或许是这几天潜移默化的压力。</p>
-<p>在最后阶段疯狂码字排版时，心里想着，怎么会有人参加这种比赛啊？太累人了，简直要命！但随着紧张的情绪逐渐平复，仔细想想这二十来天的收获，不仅是实实在在的技能，还是难以表述的能力，都让我觉得当初加入小组的抉择是正确的。最重要的是，享受和队友互相探讨问题的过程，我们在朝着同一个高地前行。希望能继续挑战新事物，保持谦虚的学习姿态，一起向未来！（词穷就是说）</p>
-]]></content>
-      <tags>
-        <tag>Academy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>罗浮山古驿道定向团队赛</title>
     <url>/2022/12/23/%E7%BD%97%E6%B5%AE%E5%B1%B1%E5%8F%A4%E9%A9%BF%E9%81%93%E5%AE%9A%E5%90%91%E5%9B%A2%E9%98%9F%E8%B5%9B/</url>
     <content><![CDATA[<p>罗浮山，曾来过几次的景区，之前都是以游客身份前往，今天是以运动员的身份。很幸运，还能够参加这次比赛（虽然和我一起报名的三个队友都🐏了）。这应该是我第二次尝试边跑边分的方法来跑团队赛，还是有点害怕P了。</p>
@@ -599,6 +574,20 @@ F1-score = \frac{2 \times Precision \times Recall }{Precision + Recall}
 ]]></content>
       <tags>
         <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一次数模之旅</title>
+    <url>/2022/02/22/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B0%E6%A8%A1%E4%B9%8B%E6%97%85/</url>
+    <content><![CDATA[<p>九点零七分我们将论文发到了组委会邮箱，并坐在电脑前等待了十五分钟之久，因为可能会出现邮件投递失败的情况。一分钟，三分钟，五分钟……经过焦急地等待，没有收到邮件投递失败的通知。结束了，真的结束了。长达96小时的比赛，终于结束了。</p>
+<p>数学建模竞赛，第一次听说该比赛是在大一的时候。它一般需要三人组队（不多于三人）协作共同解决一个具体问题，最终以论文的形式展现。当时看身边的人，还不少参加过这类比赛并拿奖的。所以，自己也是蠢蠢欲动。在向高数老师说明情况后，了解到这需要自己拉队友组队。后来也不知道什么原因，就没有下文了。</p>
+<span id="more"></span>
+<p>寒假某天，老朋友小成突然找联系我，问我有没有兴趣参加数模比赛。再仔细了解后，觉得小组任务定位蛮适合我的，随即就答应了。经过实则不到15天的培训，我们这临时组的队伍便“出征”了。</p>
+<p>比赛前，我想若美赛难度和培训期间的模拟训练难度差不多，那倒也不用过于担心。第一天看到题目后，我意识到自己错了。题目难度完全不是一个水平，对于我们这支小白队伍来说，难度还是蛮大的。一是我们能做的题目类型有限，其它类型的题目专业性太强直接排除。二是对于能看得懂的题目，设问多、要求多、难以衡量标准、难入手。在比赛的前两天时间，感觉整体上是压抑的。方法结果不尽人意，论文没有进展，难以找到突破口。但我们仍坚持着相信可以完成选题，继续查阅资料，搜集数据，找到解题的方法。时间一天天过去，到了第四天的比赛日，我们的论文却还差一大截，很是让人捉急。最后一个晚上，为了赶进度，我们几乎都只休息了半个钟便又忙起眼前的事。可能，这是自己第一次真正意义上的通宵。因为有任务未完成，所以自己也没有感到特别困倦，反倒是这几天深圳赶上了入秋以来最冷的几天，冰冷的双手在键盘上来回敲击，身体时不时打着寒颤（也有紧张的因素）。就这样，从当天晚饭后一直持续到次日九点，13小时多的奋战结束了。美赛落下帷幕，但由内而外的紧张感却迟迟未褪去，或许是这几天潜移默化的压力。</p>
+<p>在最后阶段疯狂码字排版时，心里想着，怎么会有人参加这种比赛啊？太累人了，简直要命！但随着紧张的情绪逐渐平复，仔细想想这二十来天的收获，不仅是实实在在的技能，还是难以表述的能力，都让我觉得当初加入小组的抉择是正确的。最重要的是，享受和队友互相探讨问题的过程，我们在朝着同一个高地前行。希望能继续挑战新事物，保持谦虚的学习姿态，一起向未来！（词穷就是说）</p>
+]]></content>
+      <tags>
+        <tag>Academy</tag>
       </tags>
   </entry>
   <entry>
